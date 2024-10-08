@@ -1,39 +1,41 @@
-import { Controller, Get, Post, Body, Put, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Put, Param, Delete, HttpCode, HttpStatus } from '@nestjs/common';
 import { BikesService } from '../services/bikes.service';
 import { CreateBikeDto } from '../dto/create-bike.dto';
 
-// Controller to handle requests related to Bikes
 @Controller('bikes')
 export class BikesController {
   constructor(private readonly bikesService: BikesService) {}
 
-  // Creates a new bike entry
+  // Endpoint to create a new bike, uses POST method
   @Post()
-  create(@Body() createBikeDto: CreateBikeDto) {
+  async create(@Body() createBikeDto: CreateBikeDto) {
     return this.bikesService.create(createBikeDto);
   }
-  // Retrieves all bikes
 
+  // Endpoint to retrieve all bikes, uses GET method
   @Get()
-  findAll() {
+  async findAll() {
     return this.bikesService.findAll();
   }
 
-    // Retrieves a single bike by ID
+  // Endpoint to retrieve a specific bike by ID, uses GET method
   @Get(':id')
-  findOne(@Param('id') id: string) {
+  async findOne(@Param('id') id: string) {
     return this.bikesService.findOne(id);
   }
-   // Updates a bike entry by ID
 
+  // Endpoint to update a specific bike by ID, uses PUT method
   @Put(':id')
-  update(@Param('id') id: string, @Body() createBikeDto: CreateBikeDto) {
+  async update(@Param('id') id: string, @Body() createBikeDto: CreateBikeDto) {
     return this.bikesService.update(id, createBikeDto);
   }
 
-   // Deletes a bike entry by ID
+  // Endpoint to delete a specific bike by ID, uses DELETE method
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.bikesService.remove(id);
+  @HttpCode(HttpStatus.NO_CONTENT) // Sets the HTTP status code to 204 No Content
+  async remove(@Param('id') id: string) {
+    await this.bikesService.remove(id);
   }
 }
+
+
