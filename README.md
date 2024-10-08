@@ -1,89 +1,85 @@
-<<<<<<< HEAD
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+![Screenshot 2024-10-08 220609](https://github.com/user-attachments/assets/f1c5106e-0aea-481e-9f7e-743c764ed870)
+# Bike Library API
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+This project implements a RESTful API for managing a bike library using Nest.js with TypeORM and SQLite as the database. It allows users to perform CRUD operations on bike records, including adding, retrieving, updating, and deleting bike entries.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## Prerequisites
 
-## Description
+Before you begin, ensure you have the following installed on your system:
+- Node.js (v14.x or later)
+- npm (v6.x or later)
+- Git
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## Installation
 
-## Project setup
+Follow these steps to get your development environment running:
 
-```bash
-$ npm install
-```
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/raipriyanshuu/bike-library-api.git
+   cd bike-library-api
 
-## Compile and run the project
+Install dependencies:
+npm install
 
-```bash
-# development
-$ npm run start
 
-# watch mode
-$ npm run start:dev
+To run the application locally, use the following command:
 
-# production mode
-$ npm run start:prod
-```
+npm run start:dev
 
-## Run tests
+### API Endpoints
 
-```bash
-# unit tests
-$ npm run test
+The API supports the following operations, useful for managing bike inventories:
 
-# e2e tests
-$ npm run test:e2e
+- **GET /bikes**
+  - **Description**: Retrieves a list of all bikes in the library.
+  - **Response**: A JSON array of bike objects.
 
-# test coverage
-$ npm run test:cov
-```
+- **POST /bikes**
+  - **Description**: Adds a new bike to the library.
+  - **Body**:
+    ```json
+    {
+      "make": "Royal Enfield",
+      "model": "Classic 350",
+      "year": 2021,
+      "type": "Cruiser"
+    }
+    ```
+  - **Response**: Details of the added bike.
 
-## Resources
+- **PUT /bikes/{id}**
+  - **Description**: Updates an existing bike's details.
+  - **Parameters**:
+    - `id` (string): The ID of the bike to update.
+  - **Body**:
+    ```json
+    {
+      "make": "Updated Make",
+      "model": "Updated Model"
+    }
+    ```
 
-Check out a few resources that may come in handy when working with NestJS:
+- **DELETE /bikes/{id}**
+  - **Description**: Removes a bike from the library.
+  - **Parameters**:
+    - `id` (string): The ID of the bike to delete.
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
 
-## Support
+Contributing
+Contributions are welcome, and any contributions you make are greatly appreciated.
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+Fork the Project
+Create your Feature Branch (git checkout -b feature/AmazingFeature)
+Commit your Changes (git commit -m 'Add some AmazingFeature')
+Push to the Branch (git push origin feature/AmazingFeature)
+Open a Pull Request
 
-## Stay in touch
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+## Contact
 
-## License
+For any queries or further assistance, please reach out to me:
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
-=======
-# bike-library-api
->>>>>>> 18101aa7494d5957ac31cda2b040456616a98dea
+- **Email**: [priyanshurai328@gmail.com](mailto:priyanshurai328@gmail.com)
+- **GitHub Project Link**: [Bike Library API](https://github.com/raipriyanshuu/bike-library-api)
+
