@@ -25,23 +25,44 @@ npm install
 To run the application locally, use the following command:
 npm run start:dev
 
-API Endpoints
+### API Endpoints
 
-The API supports the following operations:
+The API supports the following operations, useful for managing bike inventories:
 
-GET /bikes: Retrieve a list of all bikes in the library.
-POST /bikes: Add a new bike to the library.
-GET /bikes/{id}: Retrieve a bike by its ID.
-PUT /bikes/{id}: Update an existing bike's details.
-DELETE /bikes/{id}: Remove a bike from the library.
+- **GET /bikes**
+  - **Description**: Retrieves a list of all bikes in the library.
+  - **Response**: A JSON array of bike objects.
 
+- **POST /bikes**
+  - **Description**: Adds a new bike to the library.
+  - **Body**:
+    ```json
+    {
+      "make": "Royal Enfield",
+      "model": "Classic 350",
+      "year": 2021,
+      "type": "Cruiser"
+    }
+    ```
+  - **Response**: Details of the added bike.
 
-Examples
-Here are some example requests you can make to the API:
-Add a Bike:
-curl -X POST http://localhost:3000/bikes -H 'Content-Type: application/json' -d '{"make": "Royal Enfield", "model": "Classic 350", "year": 2021, "type": "Cruiser"}'
-Get All Bikes:
-curl http://localhost:3000/bikes
+- **PUT /bikes/{id}**
+  - **Description**: Updates an existing bike's details.
+  - **Parameters**:
+    - `id` (string): The ID of the bike to update.
+  - **Body**:
+    ```json
+    {
+      "make": "Updated Make",
+      "model": "Updated Model"
+    }
+    ```
+
+- **DELETE /bikes/{id}**
+  - **Description**: Removes a bike from the library.
+  - **Parameters**:
+    - `id` (string): The ID of the bike to delete.
+
 
 Contributing
 Contributions are welcome, and any contributions you make are greatly appreciated.
@@ -53,6 +74,10 @@ Push to the Branch (git push origin feature/AmazingFeature)
 Open a Pull Request
 
 
-Contact
-Priyanshu Rai   priyanshurai328@gmail.com
-Project Link: https://github.com/raipriyanshuu/bike-library-api
+## Contact
+
+For any queries or further assistance, please reach out to me:
+
+- **Email**: [priyanshurai328@gmail.com](mailto:priyanshurai328@gmail.com)
+- **GitHub Project Link**: [Bike Library API](https://github.com/raipriyanshuu/bike-library-api)
+
