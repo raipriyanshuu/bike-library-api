@@ -1,3 +1,4 @@
+![Screenshot 2024-10-08 220609](https://github.com/user-attachments/assets/f1c5106e-0aea-481e-9f7e-743c764ed870)
 # Bike Library API
 
 This project implements a RESTful API for managing a bike library using Nest.js with TypeORM and SQLite as the database. It allows users to perform CRUD operations on bike records, including adding, retrieving, updating, and deleting bike entries.
