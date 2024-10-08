@@ -23,6 +23,7 @@ npm install
 
 
 To run the application locally, use the following command:
+
 npm run start:dev
 
 ### API Endpoints
